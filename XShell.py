@@ -341,10 +341,99 @@ def linuxShell():
             if user.startswith('cd'):
                 newPath = user.replace('cd ', '')
                 os.chdir(newPath)
+                
+            elif "--hash" in user.split():
+                if "--type" in user.split():
+                    type_ = user.split()[user.split().index("--type")+1]
+                    text_ = user.split()[user.split().index('--hash')+1]
+                    print("[+] "+createHasher(text=text_, type_of_encrypt=type_))
+                    
+                else:
+                    text = user.split()[user.split().index('--hash')+1]
+                    print("[+] "+createHasher(text=text, type_of_encrypt='random'))
+                    
+                    
+            elif "--connect-get" in user.split():
+                link_ = user.split()[user.split().index("--connect-get")+1]
+                if user.split[-1] == "--status":
+                    try:
+                        dataS = requests.get(link_).status_code
+                        print(f"[+] {dataS}")
+                    except Exception as EDS:
+                        print(f"[-] Error: {EDS}")
+                        pass
+                
+                elif user.split()[-1] == "--json":
+                    try:
+                        dataJ = requests.get(link_).json()
+                        print(f"[+] {dataJ}")
+                    except Exception as EDJ:
+                        print(f"[-] Error: {EDJ}")
+                        pass
+                
+                elif user.split()[-1] == "--body":
+                    try:
+                        dataB = requests.get(link_).text
+                        print(f"[+] {dataB}")
+                    except Exception as EDB:
+                        print(f"[-] Error: {EDB}")
+                        pass
+                        
+                else:
+                    try:
+                        dataB___ = requests.get(link_).text
+                        print(f"[+] {dataB___}")
+                    except Exception as EDB:
+                        print(f"[-] Error: {EDB}")
+                        pass
+                    
+            elif "--connect-post" in user.split():
+                link_ = user.split()[user.split().index("--connect-post")+1]
+                if user.split[-1] == "--status":
+                    try:
+                        dataS_ = requests.post(link_).status_code
+                        print(f"[+] {dataS_}")
+                    except Exception as EDS_:
+                        print(f"[-] Error: {EDS_}")
+                        pass
+                
+                elif user.split()[-1] == "--json":
+                    try:
+                        dataJ_ = requests.post(link_).json()
+                        print(f"[+] {dataJ_}")
+                    except Exception as EDJ_:
+                        print(f"[-] Error: {EDJ_}")
+                        pass
+                
+                elif user.split()[-1] == "--body":
+                    try:
+                        dataB_ = requests.post(link_).text
+                        print(f"[+] {dataB_}")
+                    except Exception as EDB:
+                        print(f"[-] Error: {EDB}")
+                        pass
+                        
+                else:
+                    try:
+                        dataB__ = requests.post(link_).text
+                        print(f"[+] {dataB__}")
+                    except Exception as EDB_:
+                        print(f"[-] Error: {EDB_}")
+                        pass
+                    
+            elif "--script" in user.split():
+                script = user.split()[user.split().index("--script")+1]
+                
+                print(scriptIt(script))
+                    
+            elif "--version" in user.split():
+                print(version())
+                
+            elif "-v" in user.split():
+                print(version())
             
             elif user == "exit":
                 exit()
-                
                 
             else:
                 os.system(user)
@@ -361,11 +450,3 @@ if __name__ == "__main__":
         linuxShell()
         
         
-"""            elif "" user.split():
-                text_ = user.split()[-3]
-                if user.split()[-2] == "--type":
-                    type_ = user.split()[-1]
-                    print(createHasher(text_, type_))
-                    
-                else:
-                    print('[-] Faild to use: Switch --type')"""
