@@ -2,7 +2,7 @@
 Simple Shell => i will update it and work on Graphic
 
 # Version
-0.0.1 , 0.0.3, 1.0.0
+0.0.1 , 0.0.3, 1.0.0, 1.0.1
 
 # Write on PY3
 + Also For noobs :
@@ -20,7 +20,7 @@ add hashCreator function
 add script writer
 
 # In News
-add chat GPT
+add chat GPT = i did it on 1.0.1
 
 # Usage
 ```
