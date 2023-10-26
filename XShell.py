@@ -10,7 +10,7 @@ Version: `1.0.1`
 """
 
 # For Better Availabality
-vr = "1.0.0"
+vr = "1.0.1"
 
 import os
 import platform
