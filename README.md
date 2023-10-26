@@ -22,6 +22,8 @@ add script writer
 # In News
 add chat GPT = i did it on 1.0.1
 
++ add Help Command
+
 # Usage
 ```
 git clone https://github.com/Zrexer/XShell
